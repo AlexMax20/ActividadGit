@@ -1,0 +1,57 @@
+@echo off
+:inicio
+echo Calculadora Basica
+echo Selecciona una operacion:
+echo 1. Sumar
+echo 2. Restar
+echo 3. Multiplicar
+echo 4. Dividir
+echo 5. Salir
+set /p operacion=Introduce el numero de la operacion:
+
+if %operacion%==1 goto sumar
+if %operacion%==2 goto restar
+if %operacion%==3 goto multiplicar
+if %operacion%==4 goto dividir
+if %operacion%==5 goto salir
+
+:sumar
+set /p num1=Introduce el primer numero:
+set /p num2=Introduce el segundo numero:
+set /a resultado=%num1%+%num2%
+echo El resultado es: %resultado%
+pause
+goto inicio
+
+:restar
+set /p num1=Introduce el primer numero:
+set /p num2=Introduce el segundo numero:
+set /a resultado=%num1%-%num2%
+echo El resultado es: %resultado%
+pause
+goto inicio
+
+:multiplicar
+set /p num1=Introduce el primer numero:
+set /p num2=Introduce el segundo numero:
+set /a resultado=%num1%*%num2%
+echo El resultado es: %resultado%
+pause
+goto inicio
+
+:dividir
+set /p num1=Introduce el primer numero:
+set /p num2=Introduce el segundo numero:
+if %num2%==0 (
+    echo Error: No se puede dividir por 0.
+) else if %num1%==0 (
+	echo El resultado es:0
+) else (
+set /a resultado=%num1%/%num2%
+echo El resultado es: %resultado%
+)
+pause
+goto inicio
+
+:salir
+exit
